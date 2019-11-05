@@ -1,0 +1,15 @@
+name: Detect an issue comment on a pull request
+author: Jumpei Matsuda
+description: An action to detect if an issue comment event has happened in a pull request
+inputs:
+outputs:
+  pull_number:
+    description: the pull request number that has/had the comment
+  completed:
+    description: true if the comment event has happened on a pull request
+runs:
+  using: 'docker'
+  image: './Dockerfile'
+branding:
+  color: 'black'
+  icon: 'anchor'

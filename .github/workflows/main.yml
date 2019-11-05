@@ -1,0 +1,16 @@
+
+on: 
+  issue_comment
+
+jobs:
+  example:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: jmatsu/detect-issue-comment-to-pr-filter@master
+      id: filter
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    - run: echo "I'm a pull request (${{ steps.filter.outputs.pull_number }})"
+      if: steps.filter.outputs.is_pull_request == 'true'
+    - run: echo "I'm not a pull request"
+      if: steps.filter.outputs.is_pull_request != 'true'
