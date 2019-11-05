@@ -5,7 +5,7 @@ This action detects if an issue comment event happens on a pull request.
 
 ## Versions
 
-See [Releases](https://github.com/jmatsu/detect-issue-comment-to-pr-filter/releases) page.
+See [Releases](https://github.com/jmatsu/detect-issue-comment-to-pr-action/releases) page.
 
 ## Inputs and Outpus
 
@@ -23,7 +23,7 @@ on:
 Add this action to steps.
 
 ```yaml
-- uses: jmatsu/detect-issue-comment-to-pr-filter@<tag>
+- uses: jmatsu/detect-issue-comment-to-pr-action@<tag>
   id: filter
   env:
     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
