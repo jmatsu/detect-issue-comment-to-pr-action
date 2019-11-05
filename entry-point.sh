@@ -5,7 +5,9 @@ set -o pipefail
 
 source /toolkit.sh
 
-readonly issue_number="$(cat $GITHUB_EVENT_PATH  | jq -r '.issue_comment.html_url' | sed 's/^.*\/issues\/\([0-9]*\)#.*$/\1/')"
+cat $GITHUB_EVENT_PATH | github::debug
+
+readonly issue_number="$(cat $GITHUB_EVENT_PATH | jq -r '.issue_comment.html_url' | sed 's/^.*\/issues\/\([0-9]*\)#.*$/\1/')"
 
 if [[ -z $(curl -X GET \
   -H "Authorization: token $GITHUB_TOKEN" \
